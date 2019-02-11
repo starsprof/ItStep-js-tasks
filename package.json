@@ -8,7 +8,7 @@
     "test-debug": "./node_modules/.bin/mocha --debug-brk",
     "prepush": "npm run lint && npm test"
   },
-  "author": "IT Shark Pro",
+  "author": "IT Step Tasks (based on IT Shark)",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^5.4.0",
@@ -17,6 +17,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.github.com:it-shark-pro/js-assignments.git"
+    "url": "git@github.com:Pahmurny/ItStep-js-tasks.git"
   }
 }
