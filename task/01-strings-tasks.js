@@ -200,6 +200,7 @@ function extractEmails(str) {
  */
 function getRectangleString(width, height) {
   throw new Error('Not implemented');
+  
 }
 
 
@@ -220,7 +221,10 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  return str.replace(/[A-Za-z]/g, function (c) {  return 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.charAt('NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'.indexOf(c));} );
+  return str.replace(/[a-zA-Z]/g, function(chr) {
+    var start = chr <= 'Z' ? 65 : 97;
+    return String.fromCharCode(start + (chr.charCodeAt(0) - start + 13) % 26);
+  });
 }
 
 /**
@@ -266,7 +270,9 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  throw new Error('Not implemented');
+  const colors = '♣♦♥♠'; 
+  const rank = 'A234567891JQK';
+  return colors.indexOf(value[value.length - 1]) * 13 + rank.indexOf(value[0]);
 }
 
 module.exports = {
